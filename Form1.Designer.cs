@@ -1,4 +1,7 @@
-﻿namespace GruppoGiochi;
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace GruppoGiochi;
+
 
 partial class Form1
 {
@@ -28,38 +31,69 @@ partial class Form1
     /// </summary>
     private void InitializeComponent()
     {
+
         menuStrip = new System.Windows.Forms.MenuStrip();
+        listSettimane = new ListBox[4];
+
+        this.MainMenuStrip = menuStrip;
+        this.components = new System.ComponentModel.Container();
+        this.FormBorderStyle = FormBorderStyle.None;
+        this.WindowState = FormWindowState.Maximized;
+        this.ClientSize = new System.Drawing.Size(1920, 1080);
+        this.Text = "Form1";
         menuAnimatori = new System.Windows.Forms.ToolStripMenuItem();
         menuSettimane = new System.Windows.Forms.ToolStripMenuItem();
         menuStrip.SuspendLayout();
         //
-        // menuStrip
-        //
-        menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuAnimatori, menuSettimane });
-        menuStrip.Location = new System.Drawing.Point(0, 0);
-        menuStrip.Name = "menuStrip";
-        menuStrip.Size = new System.Drawing.Size(ClientSize.Width / 4, ClientSize.Height);
-        //
         // menuAnimatori
         //
-        menuAnimatori.Name = "menuAnimatori"
-        menuAnimatori.Size = new Size(ClientSize.Width / 4, 25);
+        menuAnimatori.AutoSize = false;
+        menuAnimatori.Name = "menuAnimatori";
+        menuAnimatori.Size = new Size(Size.Width / 4, Height / 2);
+        menuAnimatori.Alignment = ToolStripItemAlignment.Right;
+        menuAnimatori.BackColor = Color.DarkGray;
         menuAnimatori.Text = "Gestione Animatori";
+        menuAnimatori.Click += new System.EventHandler(this.menuAnimatori_Click);
         //
         // menuSettimane
         //
-        menuAnimatori.Name = "menuAnimatori"
-        menuAnimatori.Size = new Size(ClientSize.Width / 4, 25);
-        menuAnimatori.Text = "Gestione Animatori";
-        this.components = new System.ComponentModel.Container();
-        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        this.ClientSize = new System.Drawing.Size(1920, 1080);
-        this.Text = "Form1";
+        menuSettimane.AutoSize = false;
+        menuSettimane.Name = "menuSettimane";
+        menuSettimane.Size = new Size(Size.Width / 4, Height / 2);
+        menuSettimane.Anchor = AnchorStyles.Right;
+        menuSettimane.Alignment = ToolStripItemAlignment.Left;
+        menuSettimane.BackColor = Color.DarkGray;
+        menuSettimane.Text = "Settimane";
+        menuSettimane.Click += new System.EventHandler(this.menuSettimane_Click);
+        //
+        // menuStrip
+        //
+        menuStrip.AutoSize = false;
+        menuStrip.Location = new System.Drawing.Point(0, 0);
+        menuStrip.Name = "menuStrip";
+        menuStrip.Dock = DockStyle.Fill;
+        menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { menuAnimatori, menuSettimane });
+        // listSettimane
+        Point startpos = new Point(20, 20);
+        for (int i = 0; i < 4; i++)
+        {
+            listSettimane[i] = new ListBox();
+            listSettimane[i].Size = new Size(ClientSize.Width / 4 - 40, Height - 40);
+            listSettimane[i].Location = new Point(startpos.X, startpos.Y);
+            listSettimane[i].Name = $"listSettimana{i + 1}";
+            Controls.Add(listSettimane[i]);
+            startpos.X += listSettimane[i].Width + 20;
+        }
+
+        this.Controls.Add(menuStrip);
+        this.menuStrip.ResumeLayout(false);
+        this.menuStrip.PerformLayout();
+        this.PerformLayout();
     }
-
-    public MenuStrip menuStrip;
-    public toolStripMenuItem menuAnimatori;
-    public toolStripMenuItem menuSettimane;
-
+    
     #endregion
+    public MenuStrip menuStrip;
+    public ToolStripMenuItem menuAnimatori;
+    public ListBox[] listSettimane;
+    public ToolStripMenuItem menuSettimane;
 }

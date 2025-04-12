@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GruppoGiochi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09499f781b7f5e2438a91aed581a8f2b33a3cb79")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b628cb3a135aaecacb744f25ce735f0c45effccc")]
 [assembly: System.Reflection.AssemblyProductAttribute("GruppoGiochi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GruppoGiochi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
